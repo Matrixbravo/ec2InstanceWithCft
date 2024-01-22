@@ -1,0 +1,8 @@
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-id #Specific AMI ID
+      InstanceType: t2.micro
+      KeyName: 
+        Ref: "KeyName" #EC2 Key Pair
