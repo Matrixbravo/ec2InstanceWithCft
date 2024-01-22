@@ -2,7 +2,7 @@ Resources:
   MyEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-id #Specific AMI ID
-      InstanceType: t2.micro
+      ImageId: ami-id #Specific Amazon Machine Image ID
+      InstanceType: t2.micro #t2 mircro instance which determines the hardware of the host computer used for your instance
       KeyName: 
         Ref: "KeyName" #EC2 Key Pair
