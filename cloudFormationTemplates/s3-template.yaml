@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "AWS Cloud Formation Template for creating an S3 Bucket"
+
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: UdayBucket
+      AccessControl: Private
+      VersionConfiguration:
+        Status: Enabled
