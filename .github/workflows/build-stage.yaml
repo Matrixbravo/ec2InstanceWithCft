@@ -23,5 +23,4 @@ jobs:
             --stack-name MyTestStack \
             --template-file cloudFormationTemplates/ec2-template.yaml \
             --capabilities CAPABILITY_IAM
-          aws cloudformation wait stack-create-complete --stack-name MyTestStack
 
