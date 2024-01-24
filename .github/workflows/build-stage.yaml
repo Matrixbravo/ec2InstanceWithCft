@@ -5,9 +5,6 @@ on: workflow_dispatch
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
 
     steps:
       - name: Checkout repository
@@ -16,7 +13,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::783903908886:user/asna-role
+          aws-access-key-id: AKIA3NBCQMQLLZTJ4UGQ
+          aws-secret-access-key: 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
           aws-region: us-east-1
 
       - name: Deploy CloudFormation Stack
