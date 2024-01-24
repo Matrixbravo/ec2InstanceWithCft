@@ -20,7 +20,7 @@ jobs:
       - name: Deploy CloudFormation Stack
         run: |
           aws cloudformation deploy \
-            --stack-name MyTestStack \
-            --template-file cloudFormationTemplates/ec2-template.yaml \
-            --capabilities CAPABILITY_IAM
-
+          --stack-name MyEC2Stack \
+          --template-file cloudFormationTemplates/ec2-template.yaml \
+          --capabilities CAPABILITY_IAM \
+          
