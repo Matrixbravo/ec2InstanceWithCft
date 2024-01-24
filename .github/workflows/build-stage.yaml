@@ -1,4 +1,4 @@
-name: Deploy EC2 Instance
+name: Deploy AWS Services 
 
 on: workflow_dispatch
 
@@ -21,7 +21,7 @@ jobs:
         run: |
           aws cloudformation deploy \
             --template-file cloudFormationTemplates/s3-template.yaml \
-            --stack-name MyEC2Stack \
-            --capabilities CAPABILITY_IAM
+            --stack-name MyTestStack \
+            --capabilities CAPABILITY_NAMED_IAM
 
 
