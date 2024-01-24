@@ -11,17 +11,18 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIA3NBCQMQLLZTJ4UGQ
-          aws-secret-access-key: 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
-          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1 # Change to your region
 
       - name: Deploy CloudFormation Stack
         run: |
           aws cloudformation deploy \
-            --template-file cloudFormationTemplates/s3-template.yaml \
+            --template-file cloudFormationTemplates/ec2-template.yaml \
             --stack-name MyTestStack \
+            --parameter-overrides IAMRoleArn=${{ secrets.IAM_ROLE_ARN }}
             --capabilities CAPABILITY_NAMED_IAM
 
 
