@@ -11,11 +11,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Debug IAM Role Information
+        run: |
+          echo "AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}"
+          aws sts get-caller-identity --output json
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Debug AWS CLI Configuration
+        run: |
+          aws configure list
+          aws sts get-caller-identity --output json
 
       - name: Deploy CloudFormation Stack
         run: |
