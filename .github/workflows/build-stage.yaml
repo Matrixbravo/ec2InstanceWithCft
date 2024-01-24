@@ -14,7 +14,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: arn:aws:iam::783903908886:user/asna-role
+          role-to-assume: arn:aws:iam::783903908886:user/asna-role
           aws-region: us-east-1
 
       - name: Deploy CloudFormation Stack
